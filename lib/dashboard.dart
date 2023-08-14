@@ -35,7 +35,7 @@ class _DashboardState extends State<Dashboard> {
       bottomNavigationBar: BottomAppBar(
         height: 70,
         notchMargin: 10,
-        shape: CircularNotchedRectangle(),
+        shape: const CircularNotchedRectangle(),
         child: Padding(
           padding: const EdgeInsets.all(12.0),
           child: Row(
