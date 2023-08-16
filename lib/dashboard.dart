@@ -16,11 +16,11 @@ class _DashboardState extends State<Dashboard> {
   int currentab = 0;
   List<Widget> screens = [
     const FindDonarsScreen(),
+    const RequestScreen(),
     const HistoryScreen(),
     const ProfileScreen(),
-    const RequestScreen()
   ];
-  bool home = true;
+  bool profile = true;
   bool history = true;
   bool request = true;
   bool donars = true;
@@ -29,6 +29,7 @@ class _DashboardState extends State<Dashboard> {
     return Scaffold(
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       floatingActionButton: FloatingActionButton(
+        backgroundColor: Appcolors.primaryred,
         onPressed: () {},
         child: Icon(Icons.add),
       ),
@@ -48,15 +49,15 @@ class _DashboardState extends State<Dashboard> {
                       onTap: () {
                         setState(() {
                           currentab = 0;
-                          home = true;
+                          profile = false;
                           history = false;
-                          donars = false;
+                          donars = true;
                           request = false;
                         });
                       },
                       child: AnimatedContainer(
-                          height: home ? 30 : 20,
-                          width: home ? 30 : 20,
+                          height: donars ? 30 : 20,
+                          width: donars ? 30 : 20,
                           duration: const Duration(milliseconds: 500),
                           child: Icon(
                             Icons.add_home_work_sharp,
@@ -65,7 +66,7 @@ class _DashboardState extends State<Dashboard> {
                                 : Appcolors.primaryblack,
                           )),
                     ),
-                    if (home)
+                    if (donars)
                       Text(
                         'Find Donars',
                         style: TextStyle(
@@ -83,15 +84,15 @@ class _DashboardState extends State<Dashboard> {
                       onTap: () {
                         setState(() {
                           currentab = 1;
-                          home = false;
-                          history = true;
+                          profile = false;
+                          history = false;
                           donars = false;
-                          request = false;
+                          request = true;
                         });
                       },
                       child: AnimatedContainer(
-                          height: history ? 30 : 20,
-                          width: history ? 30 : 20,
+                          height: request ? 30 : 20,
+                          width: request ? 30 : 20,
                           child: Icon(
                             Icons.history,
                             color: currentab == 1
@@ -100,13 +101,12 @@ class _DashboardState extends State<Dashboard> {
                           ),
                           duration: const Duration(milliseconds: 500)),
                     ),
-                    if (history)
+                    if (request)
                       Text(
                         'Request',
                         style: TextStyle(
-                            color: currentab == 1
-                                ? Appcolors.primaryred
-                                : Appcolors.primaryblack),
+                            color:
+                                currentab == 1 ? Appcolors.primaryred : null),
                       )
                   ],
                 ),
@@ -121,15 +121,15 @@ class _DashboardState extends State<Dashboard> {
                       onTap: () {
                         setState(() {
                           currentab = 2;
-                          home = false;
-                          history = false;
-                          donars = true;
+                          profile = false;
+                          history = true;
+                          donars = false;
                           request = false;
                         });
                       },
                       child: AnimatedContainer(
-                          height: donars ? 30 : 20,
-                          width: donars ? 30 : 20,
+                          height: history ? 30 : 20,
+                          width: history ? 30 : 20,
                           duration: const Duration(milliseconds: 500),
                           child: Icon(
                             Icons.book_rounded,
@@ -138,13 +138,12 @@ class _DashboardState extends State<Dashboard> {
                                 : Appcolors.primaryblack,
                           )),
                     ),
-                    if (donars)
+                    if (history)
                       Text(
-                        'Profile',
+                        'History',
                         style: TextStyle(
-                            color: currentab == 0
-                                ? Appcolors.primaryred
-                                : Appcolors.primaryblack),
+                            color:
+                                currentab == 2 ? Appcolors.primaryred : null),
                       )
                   ],
                 ),
@@ -156,15 +155,15 @@ class _DashboardState extends State<Dashboard> {
                       onTap: () {
                         setState(() {
                           currentab = 3;
-                          home = false;
+                          profile = true;
                           history = false;
                           donars = false;
-                          request = true;
+                          request = false;
                         });
                       },
                       child: AnimatedContainer(
-                          height: request ? 30 : 20,
-                          width: request ? 30 : 20,
+                          height: profile ? 30 : 20,
+                          width: profile ? 30 : 20,
                           child: Icon(
                             Icons.person,
                             color: currentab == 3
@@ -173,13 +172,12 @@ class _DashboardState extends State<Dashboard> {
                           ),
                           duration: const Duration(milliseconds: 500)),
                     ),
-                    if (request)
+                    if (profile)
                       Text(
                         'Profile',
                         style: TextStyle(
-                            color: currentab == 3
-                                ? Appcolors.primaryred
-                                : Appcolors.primaryblack),
+                            color:
+                                currentab == 3 ? Appcolors.primaryred : null),
                       )
                   ],
                 ),
