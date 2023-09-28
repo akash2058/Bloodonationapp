@@ -2,9 +2,13 @@
 
 import 'package:flutter/material.dart';
 
+// ignore: must_be_immutable
 class Customtextform extends StatelessWidget {
   String text;
+  VoidCallback? ontap;
+  TextInputType? keyboardtype;
   bool? obstruct;
+  String? Function(String?)? validator;
   Widget? widget;
   Widget? icon;
   TextEditingController controller;
@@ -12,6 +16,9 @@ class Customtextform extends StatelessWidget {
   Customtextform({
     Key? key,
     required this.text,
+    this.ontap,
+    this.keyboardtype,
+    this.validator,
     this.icon,
     this.obstruct,
     this.widget,
@@ -21,6 +28,9 @@ class Customtextform extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      onTap: ontap,
+      keyboardType: keyboardtype,
+      validator: validator,
       obscureText: obstruct ?? false,
       controller: controller,
       decoration: InputDecoration(

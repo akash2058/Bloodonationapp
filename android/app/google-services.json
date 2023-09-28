@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "830421188636",
+    "project_id": "bloodonarapp",
+    "storage_bucket": "bloodonarapp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:830421188636:android:73c21d5935c57e5a70dfd9",
+        "android_client_info": {
+          "package_name": "com.example.blooddonarapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "830421188636-p1soqm2k732mfekhl54e9126gcgl6dc5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBW_kG-sZXSJ5zE70tK01HSGPDni6RNDm0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "830421188636-p1soqm2k732mfekhl54e9126gcgl6dc5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

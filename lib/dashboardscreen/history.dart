@@ -1,5 +1,5 @@
 import 'package:blooddonarapp/utilities/colors.dart';
-import 'package:blooddonarapp/view/historytabs/mydonations.dart';
+import 'package:blooddonarapp/view/historytabs/requestforblood.dart';
 import 'package:blooddonarapp/view/historytabs/recentdonations.dart';
 import 'package:flutter/material.dart';
 
@@ -10,36 +10,41 @@ class HistoryScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return DefaultTabController(
       length: 2,
-      child: Scaffold(
-        body: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              'Donation History',
-              style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
+      child: SafeArea(
+        child: Scaffold(
+          body: Padding(
+            padding: const EdgeInsets.all(15.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                const Text(
+                  'Donation History',
+                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
+                ),
+                const Text('List of Donations and Request for Blood'),
+                Container(
+                  height: MediaQuery.of(context).size.height * 0.15,
+                  width: MediaQuery.of(context).size.width,
+                  decoration: const BoxDecoration(),
+                  child: const TabBar(
+                      indicatorColor: Appcolors.primaryred,
+                      unselectedLabelColor: Appcolors.primaryblack,
+                      labelColor: Appcolors.primaryred,
+                      tabs: [
+                        Tab(
+                          text: 'Donations',
+                        ),
+                        Tab(
+                          text: 'Request for Blood',
+                        ),
+                      ]),
+                ),
+                const Expanded(
+                    child: TabBarView(
+                        children: [RecentDonationstab(), MyDonationtab()]))
+              ],
             ),
-            Text('Check your last donations by people on Blood Donation App'),
-            Container(
-              height: MediaQuery.of(context).size.height * 0.15,
-              width: MediaQuery.of(context).size.width,
-              decoration: BoxDecoration(),
-              child: TabBar(
-                  indicatorColor: Appcolors.primaryred,
-                  unselectedLabelColor: Appcolors.primaryblack,
-                  labelColor: Appcolors.primaryred,
-                  tabs: [
-                    Tab(
-                      text: 'Recent Donations',
-                    ),
-                    Tab(
-                      text: 'My Donations',
-                    ),
-                  ]),
-            ),
-            Expanded(
-                child: TabBarView(
-                    children: [RecentDonationstab(), MyDonationtab()]))
-          ],
+          ),
         ),
       ),
     );

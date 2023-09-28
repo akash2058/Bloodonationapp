@@ -2,28 +2,33 @@
 import 'package:blooddonarapp/utilities/colors.dart';
 import 'package:flutter/material.dart';
 
+// ignore: must_be_immutable
 class Customtile extends StatelessWidget {
   String title;
-  String subtitle;
+  String? subtitle;
+  VoidCallback? ontap;
+  Widget? leading;
+  Widget? trailing;
   Customtile({
     Key? key,
     required this.title,
-    required this.subtitle,
+    this.ontap,
+    this.leading,
+    this.trailing,
+    this.subtitle,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: MediaQuery.of(context).size.height * 0.1,
       width: MediaQuery.of(context).size.width,
       child: Card(
         child: ListTile(
-          leading: Icon(
-            Icons.circle,
-            color: Appcolors.primaryred,
-          ),
+          trailing: trailing,
+          leading: leading,
+          onTap: ontap,
           title: Text(title),
-          subtitle: Text(subtitle),
+          subtitle: subtitle != null ? Text(subtitle!) : null,
         ),
       ),
     );
